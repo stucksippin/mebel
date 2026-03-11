@@ -14,3 +14,15 @@ export interface Category {
   metaDescription: string;
   subcategories: Subcategory[];
 }
+
+export interface Product {
+  id: string;
+  category: string;
+  subcategory: string;
+  name: string;
+  material?: string;
+  term?: string;
+  size?: string;
+  priceFrom?: number;
+  badge?: string;
+}

@@ -1,12 +1,12 @@
 import Link from "next/link";
 
 const cats = [
-  { slug: "kuhni", name: "Кухни", sub: "Угловые, прямые, с островом", icon: "🍳" },
-  { slug: "shkafy", name: "Шкафы", sub: "Купе, встроенные, гардеробные", icon: "🚪" },
-  { slug: "gostinaya", name: "Гостиные", sub: "Стенки, горки, ТВ-зоны", icon: "🛋️" },
-  { slug: "spalnya", name: "Спальни", sub: "Кровати, изголовья, тумбы", icon: "🛏️" },
-  { slug: "detskaya", name: "Детские", sub: "Кровати, рабочие места", icon: "🎠" },
-  { slug: "prihozhaya", name: "Прихожие", sub: "Шкафы, банкетки, вешалки", icon: "🏠" },
+  { slug: "kuhni", name: "Кухни", sub: "Угловые, прямые, с островом" },
+  { slug: "shkafy", name: "Шкафы", sub: "Купе, встроенные, гардеробные" },
+  { slug: "gostinaya", name: "Гостиные", sub: "Стенки, горки, ТВ-зоны" },
+  { slug: "spalnya", name: "Спальни", sub: "Кровати, изголовья, тумбы" },
+  { slug: "detskaya", name: "Детские", sub: "Кровати, рабочие места" },
+  { slug: "prihozhaya", name: "Прихожие", sub: "Шкафы, банкетки, вешалки" },
 ];
 
 export default function CatalogSection() {
@@ -27,9 +27,7 @@ export default function CatalogSection() {
               key={cat.slug}
               href={`/catalog/${cat.slug}`}
               className="cat-card"
-              style={{ animationDelay: `${i * 0.08}s` }}
             >
-              <div className="cat-card-icon">{cat.icon}</div>
               <div className="cat-card-img-placeholder">
                 <span>{cat.name}</span>
               </div>

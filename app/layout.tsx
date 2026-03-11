@@ -37,7 +37,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="ru" suppressHydrationWarning className={`${cormorant.variable} ${jost.variable}`}>
-      <body>
+      <body suppressHydrationWarning>
         <Header />
         <main>{children}</main>
         <Footer />

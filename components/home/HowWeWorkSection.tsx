@@ -18,12 +18,9 @@ export default function HowWeWorkSection() {
         </div>
 
         <div className="steps-wrap">
-          <div className="steps-line" aria-hidden />
-          {steps.map((s, i) => (
-            <div key={s.num} className={`step ${i % 2 === 1 ? "step--alt" : ""}`}>
-              <div className="step-num-wrap">
-                <div className="step-num">{s.num}</div>
-              </div>
+          {steps.map((s) => (
+            <div key={s.num} className="step">
+              <div className="step-num">{s.num}</div>
               <div className="step-body">
                 <h3 className="step-title">{s.title}</h3>
                 <p className="step-desc">{s.desc}</p>
