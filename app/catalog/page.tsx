@@ -7,12 +7,9 @@ export const metadata: Metadata = {
   description: "Каталог мебели на заказ: кухни, шкафы, гостиные, спальни, детские комнаты. Производство по вашим размерам.",
 };
 
-
-
 export default function CatalogPage() {
   return (
     <div className="catalog-page">
-      {/* Hero */}
       <div className="catalog-hero">
         <div className="container">
           <div className="catalog-hero-inner">
@@ -25,35 +22,46 @@ export default function CatalogPage() {
         </div>
       </div>
 
-      {/* Categories */}
       <div className="container">
         <div className="catalog-grid">
-          {categories.map((cat, i) => (
-            <Link
-              key={cat.slug}
-              href={`/catalog/${cat.slug}`}
-              className="catalog-cat-card"
-            >
-              <div className="catalog-cat-img">
-                <span className="catalog-cat-img-label">Фото</span>
-              </div>
+          {categories.map((cat) => (
+            <div key={cat.slug} className="catalog-cat-card">
+              <Link href={`/catalog/${cat.slug}`} className="catalog-cat-img-link">
+                <div className="catalog-cat-img">
+                  <span className="catalog-cat-img-label">Фото</span>
+                </div>
+              </Link>
               <div className="catalog-cat-body">
-                <h2 className="catalog-cat-name">{cat.name}</h2>
+                <Link href={`/catalog/${cat.slug}`} className="catalog-cat-name-link">
+                  <h2 className="catalog-cat-name">{cat.name}</h2>
+                </Link>
                 <ul className="catalog-cat-subs">
                   {cat.subcategories.slice(0, 3).map((sub) => (
-                    <li key={sub.slug}>{sub.name}</li>
+                    <li key={sub.slug}>
+                      <Link
+                        href={`/catalog/${cat.slug}/${sub.slug}`}
+                        className="catalog-cat-sub-link"
+                      >
+                        {sub.name}
+                      </Link>
+                    </li>
                   ))}
                   {cat.subcategories.length > 3 && (
-                    <li className="catalog-cat-more">+{cat.subcategories.length - 3} ещё</li>
+                    <li>
+                      <Link href={`/catalog/${cat.slug}`} className="catalog-cat-more">
+                        +{cat.subcategories.length - 3} ещё
+                      </Link>
+                    </li>
                   )}
                 </ul>
-                <span className="catalog-cat-cta">Смотреть →</span>
+                <Link href={`/catalog/${cat.slug}`} className="catalog-cat-cta">
+                  Все {cat.name.toLowerCase()} →
+                </Link>
               </div>
-            </Link>
+            </div>
           ))}
         </div>
 
-        {/* Bottom CTA */}
         <div className="catalog-bottom-cta">
           <div className="catalog-cta-card">
             <div className="catalog-cta-text">
@@ -62,7 +70,7 @@ export default function CatalogPage() {
                 Изготовим любую мебель по вашему проекту или эскизу. Оставьте заявку — менеджер свяжется в течение 30 минут.
               </p>
             </div>
-            <a href="#zayavka" className="btn-primary">Обсудить проект</a>
+            <a href="/#zayavka" className="btn-primary">Обсудить проект</a>
           </div>
         </div>
       </div>

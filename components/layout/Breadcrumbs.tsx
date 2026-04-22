@@ -7,16 +7,18 @@ export default function Breadcrumbs({ items }: { items: Crumb[] }) {
   return (
     <>
       <BreadcrumbJsonLd items={items} />
-      <nav aria-label="Breadcrumb" className="text-sm text-gray-500 mb-6">
-        <ol className="flex items-center gap-2">
-          <li><Link href="/" className="hover:text-black">Главная</Link></li>
+      <nav aria-label="Breadcrumb" className="breadcrumb-nav">
+        <ol className="breadcrumb-list">
+          <li className="breadcrumb-item">
+            <Link href="/" className="breadcrumb-link">Главная</Link>
+          </li>
           {items.map((item, i) => (
-            <li key={i} className="flex items-center gap-2">
-              <span>/</span>
+            <li key={i} className="breadcrumb-item">
+              <span className="breadcrumb-sep">/</span>
               {item.href ? (
-                <Link href={item.href} className="hover:text-black">{item.label}</Link>
+                <Link href={item.href} className="breadcrumb-link">{item.label}</Link>
               ) : (
-                <span className="text-gray-900">{item.label}</span>
+                <span className="breadcrumb-current">{item.label}</span>
               )}
             </li>
           ))}

@@ -84,7 +84,7 @@ export default async function PortfolioItemPage({ params }: Props) {
 
             {/* CTA */}
             <div className="pf-item-cta">
-              <a href="/#zayavka" className="btn-primary">Хочу такой же проект</a>
+              <Link href="/#zayavka" className="btn-primary">Хочу такой же проект</Link>
               <Link href={`/catalog/${item.categorySlug}`} className="btn-outline">
                 Смотреть каталог
               </Link>
